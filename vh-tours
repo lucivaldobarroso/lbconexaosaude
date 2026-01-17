@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VH TOURS | Viaja más, pagando menos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* * ==========================================
+         * VARIABLES CSS & RESET
+         * ==========================================
+         */
+        :root {
+            /* Paleta de colores basada en VH TOURS (Azul predominante) */
+            --primary-color: #003366;
+            /* Azul Oscuro Institucional */
+            --secondary-color: #00A8E8;
+            /* Azul Claro/Cielo */
+            --accent-color: #FFC107;
+            /* Amarillo para CTA/Alertas */
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --white: #ffffff;
+            --light-gray: #f0f2f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* * ==========================================
+         * COMPONENTES UI
+         * ==========================================
+         */
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            text-align: center;
+            /* Adicionado para garantir alinhamento em links */
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #e0a800;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* * ==========================================
+         * HEADER & NAVEGACIÓN
+         * ==========================================
+         */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5px 0;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            margin-left: 15px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .lang-select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* Mobile Menu Button */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* * ==========================================
+         * HERO SECTION
+         * ==========================================
+         */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* * ==========================================
+         * BUSCADOR DE VUELOS
+         * ==========================================
+         */
+        .flight-search {
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) auto;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .search-btn {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* * ==========================================
+         * VIAJA CON CÉDULA (ID)
+         * ==========================================
+         */
+        .id-travel {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .id-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .id-text {
+            flex: 1;
+        }
+
+        .id-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .id-image img {
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* * ==========================================
+         * MILLAS & PAQUETES
+         * ==========================================
+         */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .miles-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pkg-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .pkg-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pkg-details {
+            padding: 20px;
+        }
+
+        .pkg-price {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* * ==========================================
+         * PAGOS & FOOTER
+         * ==========================================
+         */
+        .payment-methods {
+            padding: 50px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 2.5rem;
+            color: #555;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #bbb;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* * ==========================================
+         * CHATBOT & ADMIN UI
+         * ==========================================
+         */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+
+        .chat-btn {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .chat-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chat-body {
+            height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+
+        .chat-msg {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+            font-size: 0.9rem;
+        }
+
+        .bot-msg {
+            background: #e6f2ff;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .user-msg {
+            background: var(--secondary-color);
+            color: var(--white);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            outline: none;
+        }
+
+        .chat-input-area button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        /* ADMIN PANEL STYLES */
+        #admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            background: #f4f7f6;
+            z-index: 5000;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .admin-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+        }
+
+        /* * ==========================================
+         * RESPONSIVE
+         * ==========================================
+         */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .navbar .nav-menu {
+                display: none;
+            }
+
+            /* Simplificado para demo */
+            .hamburger {
+                display: block;
+            }
+
+            .miles-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .id-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loginModal" class="login-overlay">
+        <div class="login-box">
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">Acceso Empleados</h2>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <input type="text" id="adminUser" placeholder="Usuario">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <input type="password" id="adminPass" placeholder="Contraseña">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="attemptLogin()">Entrar</button>
+            <p style="margin-top: 15px; font-size: 0.8rem; cursor: pointer; color: #666;" onclick="closeLogin()">
+                Cancelar</p>
+        </div>
+    </div>
+
+    <div id="public-site">
+
+        <header>
+            <div class="top-bar container">
+                <a href="#" onclick="openLogin()">Área del Empleado <i class="fas fa-lock"></i></a>
+            </div>
+            <nav class="navbar container">
+                <div class="logo-container">
+                    <img src="img/vh-logo.jpg" alt="VH Tours Logo" class="logo-img">
+                    <a href="#" class="nav-brand">VH TOURS</a>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu" id="nav-links">
+                    <li><a href="#home" class="nav-link" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="#mission-vision" class="nav-link" data-i18n="nav_mission">Misión y Visión</a></li>
+                    <li><a href="#packages" class="nav-link" data-i18n="nav_packages">Paquetes</a></li>
+                    <li><a href="#miles" class="nav-link" data-i18n="nav_miles">Millas</a></li>
+                    <li><a href="#payment" data-i18n="nav_payment">Pagos</a></li>
+                    <li><a href="#instagram" data-i18n="nav_instagram">Instagram</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+                    <li><select class="lang-select" onchange="changeLanguage(this.value)">
+                            <option value="es">🇪🇸 ES</option>
+                            <option value="pt">🇧🇷 PT</option>
+                            <option value="en">🇺🇸 EN</option>
+                        </select></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="hero-content container">
+                <h1 data-i18n="hero_title">Viaja más, pagando menos, con VH TOURS</h1>
+                <p data-i18n="hero_subtitle">Expertos en conectar destinos con confianza y los mejores precios del
+                    mercado.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/559591763272?text=Hola,%20quisiera%20comprar%20un%20pasaje" target="_blank"
+                        class="btn btn-primary" data-i18n="btn_buy_ticket">Comprar Pasaje</a>
+                    <a href="https://linkfly.to/vhtours" target="_blank" class="btn btn-accent"
+                        data-i18n="btn_advisor">Hablar con Asesor</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mission-vision-section" id="mission-vision"
+            style="margin-top: -50px; position: relative; z-index: 10;">
+            <div class="search-container" style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+                <div class="mission-card" style="flex: 1; min-width: 300px; text-align: center; padding: 20px;">
+                    <i class="fas fa-bullseye"
+                        style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;" data-i18n="mission_title">Nuestra
+                        Misión</h3>
+                    <p style="color: #666;" data-i18n="mission_desc">Conectar sueños con destinos, brindando
+                        experiencias de viaje accesibles y seguras para todos nuestros clientes en Sudamérica.</p>
+                </div>
+                <div class="vision-card"
+                    style="flex: 1; min-width: 300px; text-align: center; padding: 20px; border-left: 1px solid #eee;">
+                    <i class="fas fa-eye"
+                        style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;" data-i18n="vision_title">Nuestra
+                        Visión</h3>
+                    <p style="color: #666;" data-i18n="vision_desc">Ser la agencia de turismo líder en la región,
+                        reconocida por nuestra innovación, transparencia y excelencia en el servicio al cliente.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="id-travel" id="identity" style="background-color: #f0f2f5; padding: 80px 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="id_title">Viaja solo con tu Cédula</h2>
+                    <p data-i18n="id_desc">Explora Sudamérica sin necesidad de pasaporte. Facilitamos tu viaje por el
+                        MERCOSUR.</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-id-card"></i></div>
+                        <h3>Sin Pasaporte</h3>
+                        <p style="font-size: 0.9rem; color: #666;">Viaja solo con tu documento de identidad vigente.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-globe-americas"></i></div>
+                        <h3>MERCOSUR</h3>
+                        <p style="font-size: 0.9rem; color: #666;">Acceso a Brasil, Argentina, Uruguay, Paraguay, Chile
+                            y
+                            Colombia.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Menos Burocracia</h3>
+                        <p style="font-size: 0.9rem; color: #666;">Trámites migratorios más ágiles y sencillos.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Seguridad</h3>
+                        <p style="font-size: 0.9rem; color: #666;">Asesoría completa para que viajes tranquilo.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://wa.me/559591763272?text=Información%20sobre%20viajes%20con%20cédula"
+                        target="_blank" class="btn btn-primary" data-i18n="btn_more_info">Más Información</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section" id="miles" style="padding-bottom: 0;">
+            <div class="container">
+                <div class="miles-banner">
+                    <div>
+                        <h2 style="font-size: 2rem; margin-bottom: 10px;" data-i18n="miles_title">¿Tienes Millas
+                            Acumuladas?</h2>
+                        <p data-i18n="miles_desc">Compramos, vendemos y gestionamos tus millas para que vueles más
+                            barato.</p>
+                    </div>
+                    <a href="https://wa.me/559591763272?text=Quiero%20vender%20mis%20millas" target="_blank"
+                        class="btn btn-accent" data-i18n="btn_miles_specialist">Especialista en Millas</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section" id="packages" style="padding-top: 20px;">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2 data-i18n="pkg_title">Paquetes Destacados</h2>
+                    <p data-i18n="pkg_subtitle">Las mejores ofertas seleccionadas para ti.</p>
+                </div>
+
+                <div class="packages-grid" id="packages-container">
+                </div>
+
+            </div>
+        </section>
+
+        <section id="payment" class="payment-methods">
+            <div class="container">
+                <h3 data-i18n="pay_methods">Medios de Pago Flexibles</h3>
+                <div class="payment-icons">
+                    <a href="#" target="_blank" title="Pagar con Tarjeta"><i class="fab fa-cc-visa"></i></a>
+                    <a href="#" target="_blank" title="Pagar con Tarjeta"><i class="fab fa-cc-mastercard"></i></a>
+                    <a href="#" target="_blank" title="Pagar con Tarjeta"><i class="fab fa-cc-amex"></i></a>
+                    <a href="#" target="_blank" title="Transferencia"><i class="fas fa-university"></i></a>
+                    <a href="#" target="_blank" title="PIX/QR Code"><i class="fas fa-qrcode"></i></a>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="https://link.mercadopago.com.br/SEULINK" target="_blank" class="btn btn-primary">Link de
+                        Pago Seguro</a>
+                </div>
+                <p style="margin-top: 15px; color: #777;" data-i18n="pay_secure">Pagos 100% Seguros y Verificados</p>
+            </div>
+        </section>
+
+        <section class="instagram-feed" id="instagram" style="background-color: #fafafa; padding: 60px 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="color: var(--primary-color);" data-i18n="insta_title">Síguenos en Instagram</h2>
+                    <p data-i18n="insta_desc">Mantente al día con nuestras últimas ofertas y destinos @vhtours_br</p>
+                </div>
+                <div class="insta-wrapper" style="position: relative; padding: 0 20px;">
+                    <button class="insta-nav prev" onclick="scrollInsta(-1)" aria-label="Anterior"
+                        style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: white; border: none; border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #333; opacity: 0.8; transition: opacity 0.3s;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="insta-nav next" onclick="scrollInsta(1)" aria-label="Siguiente"
+                        style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 10; background: white; border: none; border-radius: 50%; width: 40px; height: 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #333; opacity: 0.8; transition: opacity 0.3s;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="insta-grid" id="instaGrid"
+                        style="display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; scrollbar-width: none;">
+
+
+                        <div class="insta-post"
+                            style="min-width: 326px; scroll-snap-align: center; height: 580px; background: white; border-radius: 10px; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; max-width: 326px; margin: 0 auto;">
+                            <blockquote class="instagram-media"
+                                data-instgrm-permalink="https://www.instagram.com/reel/DND7gpNxtaq/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                data-instgrm-version="14"
+                                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                                <div style="padding:16px;"> <a
+                                        href="https://www.instagram.com/reel/DND7gpNxtaq/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                        style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                                        target="_blank">
+                                        <div style=" display: flex; flex-direction: row; align-items: center;">
+                                            <div
+                                                style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                                            </div>
+                                            <div
+                                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 19% 0;"></div>
+                                        <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
+                                                width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                                xmlns="https://www.w3.org/2000/svg"
+                                                xmlns:xlink="https://www.w3.org/1999/xlink">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                                        <g>
+                                                            <path
+                                                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg></div>
+                                        <div style="padding-top: 8px;">
+                                            <div
+                                                style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                                Ver esta publicación en Instagram</div>
+                                        </div>
+                                        <div style="padding: 12.5% 0;"></div>
+                                        <div
+                                            style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                            <div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: 8px;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: auto;">
+                                                <div
+                                                    style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                                            </div>
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <p
+                                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                        <a href="https://www.instagram.com/reel/DND7gpNxtaq/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                                            target="_blank">Una publicación compartida por Hacemos tu viaje una realidad
+                                            ✨✈️
+                                            (@vhtours_br)</a>
+                                    </p>
+                                </div>
+                            </blockquote>
+                            <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+
+                        <!-- REEL 2 -->
+                        <div class="insta-post"
+                            style="min-width: 326px; scroll-snap-align: center; height: 580px; background: white; border-radius: 10px; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; max-width: 326px; margin: 0 auto;">
+                            <blockquote class="instagram-media" data-instgrm-captioned
+                                data-instgrm-permalink="https://www.instagram.com/reel/DTdqCtGiWOG/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                data-instgrm-version="14"
+                                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                                <div style="padding:16px;"> <a
+                                        href="https://www.instagram.com/reel/DTdqCtGiWOG/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                        style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                                        target="_blank">
+                                        <div style=" display: flex; flex-direction: row; align-items: center;">
+                                            <div
+                                                style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                                            </div>
+                                            <div
+                                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 19% 0;"></div>
+                                        <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
+                                                width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                                xmlns="https://www.w3.org/2000/svg"
+                                                xmlns:xlink="https://www.w3.org/1999/xlink">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                                        <g>
+                                                            <path
+                                                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg></div>
+                                        <div style="padding-top: 8px;">
+                                            <div
+                                                style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                                Ver esta publicación en Instagram</div>
+                                        </div>
+                                        <div style="padding: 12.5% 0;"></div>
+                                        <div
+                                            style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                            <div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: 8px;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: auto;">
+                                                <div
+                                                    style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                                            </div>
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <p
+                                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                        <a href="https://www.instagram.com/reel/DTdqCtGiWOG/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                                            target="_blank">Una publicación compartida por Hacemos tu viaje una realidad
+                                            ✨✈️
+                                            (@vhtours_br)</a>
+                                    </p>
+                                </div>
+                            </blockquote>
+                            <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+
+                        <!-- REEL 3 -->
+                        <div class="insta-post"
+                            style="min-width: 326px; scroll-snap-align: center; height: 580px; background: white; border-radius: 10px; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; max-width: 326px; margin: 0 auto;">
+                            <blockquote class="instagram-media" data-instgrm-captioned
+                                data-instgrm-permalink="https://www.instagram.com/reel/DTQq9PPlJwT/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                data-instgrm-version="14"
+                                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                                <div style="padding:16px;"> <a
+                                        href="https://www.instagram.com/reel/DTQq9PPlJwT/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                        style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                                        target="_blank">
+                                        <div style=" display: flex; flex-direction: row; align-items: center;">
+                                            <div
+                                                style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                                            </div>
+                                            <div
+                                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 19% 0;"></div>
+                                        <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
+                                                width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                                xmlns="https://www.w3.org/2000/svg"
+                                                xmlns:xlink="https://www.w3.org/1999/xlink">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                                        <g>
+                                                            <path
+                                                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg></div>
+                                        <div style="padding-top: 8px;">
+                                            <div
+                                                style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                                Ver esta publicación en Instagram</div>
+                                        </div>
+                                        <div style="padding: 12.5% 0;"></div>
+                                        <div
+                                            style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                            <div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: 8px;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: auto;">
+                                                <div
+                                                    style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                                            </div>
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <p
+                                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                        <a href="https://www.instagram.com/reel/DTQq9PPlJwT/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                                            target="_blank">Una publicación compartida por Hacemos tu viaje una realidad
+                                            ✨✈️
+                                            (@vhtours_br)</a>
+                                    </p>
+                                </div>
+                            </blockquote>
+                            <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+
+                        <!-- REEL 4 -->
+                        <div class="insta-post"
+                            style="min-width: 326px; scroll-snap-align: center; height: 580px; background: white; border-radius: 10px; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; max-width: 326px; margin: 0 auto;">
+                            <blockquote class="instagram-media" data-instgrm-captioned
+                                data-instgrm-permalink="https://www.instagram.com/reel/DS7i-SnkZlU/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                data-instgrm-version="14"
+                                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                                <div style="padding:16px;"> <a
+                                        href="https://www.instagram.com/reel/DS7i-SnkZlU/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                        style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                                        target="_blank">
+                                        <div style=" display: flex; flex-direction: row; align-items: center;">
+                                            <div
+                                                style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                                            </div>
+                                            <div
+                                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 19% 0;"></div>
+                                        <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
+                                                width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                                xmlns="https://www.w3.org/2000/svg"
+                                                xmlns:xlink="https://www.w3.org/1999/xlink">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                                        <g>
+                                                            <path
+                                                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg></div>
+                                        <div style="padding-top: 8px;">
+                                            <div
+                                                style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                                Ver esta publicación en Instagram</div>
+                                        </div>
+                                        <div style="padding: 12.5% 0;"></div>
+                                        <div
+                                            style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                            <div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: 8px;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: auto;">
+                                                <div
+                                                    style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                                            </div>
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <p
+                                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                        <a href="https://www.instagram.com/reel/DS7i-SnkZlU/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                                            target="_blank">Una publicación compartida por Hacemos tu viaje una realidad
+                                            ✨✈️
+                                            (@vhtours_br)</a>
+                                    </p>
+                                </div>
+                            </blockquote>
+                            <script async src="//www.instagram.com/embed.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://www.instagram.com/vhtours_br/" target="_blank" class="btn btn-primary"><i
+                        class="fab fa-instagram"></i> <span data-i18n="btn_insta_more">Ver más en
+                        Instagram</span></a>
+            </div>
+            <style>
+                .insta-post:hover img {
+                    transform: scale(1.1);
+                }
+
+                .insta-post:hover .insta-overlay {
+                    opacity: 1;
+                }
+            </style>
+    </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VH TOURS</h3>
+                    <p data-i18n="footer_about">Tu agencia de confianza para viajes internacionales y gestión de
+                        millas.</p>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_contact">Contacto</h3>
+                    <ul>
+                        <li><a href="https://wa.me/559591763272" target="_blank"><i class="fab fa-whatsapp"></i> +55
+                                95 9176-3272</a></li>
+                        <li><i class="fas fa-envelope"></i> VHTOURSVIAJES.GA@GMAIL.COM</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av brigadeiro eduardo gomes 1082, Sala 01, Boa
+                            Vista, RR</li>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_social">Síguenos</h3>
+                    <div class="social-icons"
+                        style="display: flex; flex-direction: column; gap: 10px; align-items: start;">
+                        <a href="https://www.instagram.com/vhtours_br/" target="_blank"><i class="fab fa-instagram"></i>
+                            Instagram (@vhtours_br)</a>
+                        <a href="https://www.facebook.com/profile.php?id=100091712356669" target="_blank"><i
+                                class="fab fa-facebook"></i> Facebook</a>
+                        <a href="https://www.whatsapp.com/channel/0029Vb6aLwZDuMRm5TtBjH03" target="_blank"
+                            title="Canal de WhatsApp"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-section" style="margin: 40px 0; text-align: center;">
+                <h3 id="map-location-title" style="color: var(--white); margin-bottom: 20px;" data-i18n="map_title">
+                    Nuestra Ubicación</h3>
+                <div style="max-width: 100%; overflow: hidden; border-radius: 10px; box-shadow: var(--shadow);">
+                    <iframe id="google-map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.0570261361464!2d-60.671361399999995!3d2.8416136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d93095bd98d372d%3A0xb4a94e46ebd49aa7!2sVH%20TOURS!5e0!3m2!1spt-BR!2sbr!4v1768608793680!5m2!1spt-BR!2sbr"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div style="text-align: center; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem;">
+                &copy; 2019 Vh Tours Empreendimentos Ltda. CNPJ: 33.662.094/0001-13. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header" style="display: flex; align-items: center; gap: 10px;">
+                <img src="img/vh-logo.jpg" alt="VH Bot" style="width: 30px; height: 30px; border-radius: 50%;">
+                <span>VH Assistant</span>
+                <span style="cursor: pointer; margin-left: auto;" onclick="toggleChat()">✖</span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-msg bot-msg" data-i18n="chat_welcome">¡Hola! Soy la IA de VH Tours. ¿En qué puedo
+                    ayudarte hoy?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="..." onkeypress="handleChat(event)">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="chat-btn" onclick="toggleChat()">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+    </div>
+
+    </div>
+
+    <section id="admin-panel">
+        <div class="container">
+            <div class="admin-header">
+                <div>
+                    <h2>Panel Administrativo</h2>
+                    <p>Bienvenido, Admin</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="backToSite()">Ver Sitio</button>
+                    <button class="btn btn-accent" onclick="logout()">Cerrar Sesión</button>
+                </div>
+            </div>
+
+            <div class="admin-card">
+                <h3>Gestionar Paquetes</h3>
+                <br>
+                <div class="form-group">
+                    <input type="text" id="newPkgDest" placeholder="Destino (Ej. Miami)">
+                </div>
+                <div class="form-group" style="margin-top: 10px;">
+                    <input type="text" id="newPkgPrice" placeholder="Precio (Ej. $500 USD)">
+                </div>
+                <div class="form-group" style="margin-top: 10px;">
+                    <input type="text" id="newPkgImg" placeholder="URL de Imagen">
+                </div>
+                <button class="btn btn-primary" style="margin-top: 15px;" onclick="addPackage()">Agregar
+                    Paquete</button>
+            </div>
+
+            <div class="admin-card">
+                <h3>Paquetes Activos</h3>
+                <div id="admin-pkg-list" style="margin-top: 20px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollInsta(direction) {
+            const grid = document.getElementById('instaGrid');
+            const scrollAmount = 350; // Card width + gap
+            grid.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        /* * ==========================================
+         * GESTIÓN DE IDIOMAS
+         * ==========================================
+         */
+        const translations = {
+            es: {
+                nav_home: "Inicio", nav_mission: "Misión y Visión", nav_packages: "Paquetes", nav_miles: "Millas", nav_payment: "Pagos", nav_instagram: "Instagram", nav_contact: "Contacto",
+                hero_title: "Viaja más, pagando menos, con VH TOURS", hero_subtitle: "Expertos en conectar destinos con confianza y los mejores precios del mercado.",
+                btn_buy_ticket: "Comprar Pasaje", btn_advisor: "Hablar con Asesor",
+                lbl_origin: "Origen", lbl_dest: "Destino", lbl_date_out: "Ida", lbl_date_ret: "Vuelta", lbl_passengers: "Pasajeros", btn_search: "Buscar Pasajes",
+                ph_city: "Ciudad",
+                mission_title: "Nuestra Misión", mission_desc: "Conectar sueños con destinos, brindando experiencias de viaje accesibles y seguras para todos nuestros clientes en Sudamérica.",
+                vision_title: "Nuestra Visión", vision_desc: "Ser la agencia de turismo líder en la región, reconocida por nuestra innovación, transparencia y excelencia en el servicio al cliente.",
+                id_title: "Viaja solo con tu Cédula", id_desc: "Disfruta de la libertad de viajar por el MERCOSUR sin pasaporte. Tu documento de identidad es tu llave para nuevas aventuras.", btn_more_info: "Más Información",
+                miles_title: "¿Tienes Millas Acumuladas?", miles_desc: "Compramos, vendemos y gestionamos tus millas para que vueles más barato.", btn_miles_specialist: "Especialista en Millas",
+                pkg_title: "Paquetes Destacados", pkg_subtitle: "Las mejores ofertas seleccionadas para ti.",
+                pay_methods: "Medios de Pago Flexibles", pay_secure: "Pagos 100% Seguros y Verificados",
+                insta_title: "Síguenos en Instagram", insta_desc: "Mantente al día con nuestras últimas ofertas y destinos @vhtours_br", btn_insta_more: "Ver más en Instagram",
+                footer_about: "Tu agencia de confianza para viajes internacionales y gestión de millas.", footer_contact: "Contacto", footer_social: "Síguenos",
+                chat_welcome: "¡Hola! Soy VH Tours Assistant. ¿En qué puedo ayudarte hoy?",
+                pkg_btn: "Ver Oferta",
+                map_title: "Nuestra Ubicación",
+                chatbot: {
+                    greeting_options: "Opciones disponibles: <br>- Pasajes/Precio<br>- Dirección/Ubicación<br>- CNPJ<br>- Instagram<br>- WhatsApp<br>- Hablar con Agente<br>- Sobre Nosotros",
+                    price: "Los precios varían según la fecha y destino. ¿Podrías indicarme a dónde quieres viajar?",
+                    greeting: "¡Hola! ¿Buscas pasajes, paquetes turísticos o información de la empresa? (Escribe 'Menu' para ver opciones)",
+                    destinations: "¡Excelente destino! Tenemos ofertas especiales. ¿Te gustaría hablar con un asesor humano?",
+                    address: "Estamos ubicados en: Av. Brigadeiro Eduardo Gomes, 1082, Sala 01 - Estados, Boa Vista - RR, 69.305-455",
+                    cnpj: "Nuestra empresa opera con el CNPJ: 33.662.094/0001-13 (Vh Tours Empreendimentos Ltda)",
+                    insta: "Síguenos en Instagram: <a href='https://www.instagram.com/vhtours_br/' target='_blank' style='color:var(--secondary-color)'>@vhtours_br</a>",
+                    whatsapp: "Nuestro WhatsApp principal es: <a href='https://wa.me/559591763272' target='_blank' style='color:var(--secondary-color)'>+55 95 9176-3272</a>",
+                    agent: "Puedes contactar a nuestros asesores aquí: <a href='https://linkfly.to/vhtours' target='_blank' style='color:var(--secondary-color)'>Contactar Agentes</a>",
+                    about: "Somos VH Tours, especialistas en conectar destinos en Sudamérica con los mejores precios y seguridad. Ofrecemos pasajes aéreos, paquetes turísticos y gestión de millas.",
+                    desc_tourism: "El turismo es más que viajar, es vivir experiencias. En VH Tours te ayudamos a descubrir Brasil, Argentina, Chile y más, solo con tu cédula.",
+                    default: "Entiendo. Para brindarte mejor atención, te transferiré con un agente humano vía WhatsApp, o escribe 'Menu' para ver opciones."
+                }
+            },
+            pt: {
+                nav_home: "Início", nav_mission: "Missão e Visão", nav_packages: "Pacotes", nav_miles: "Milhas", nav_payment: "Pagamentos", nav_instagram: "Instagram", nav_contact: "Contato",
+                hero_title: "Viaje mais, pagando menos, com VH TOURS", hero_subtitle: "Especialistas em conectar destinos com confiança e os melhores preços do mercado.",
+                btn_buy_ticket: "Comprar Passagem", btn_advisor: "Falar com Consultor",
+                lbl_origin: "Origem", lbl_dest: "Destino", lbl_date_out: "Ida", lbl_date_ret: "Volta", lbl_passengers: "Passageiros", btn_search: "Buscar Passagens",
+                ph_city: "Cidade",
+                mission_title: "Nossa Missão", mission_desc: "Conectar sonhos com destinos, oferecendo experiências de viagem acessíveis e seguras para todos os nossos clientes na América do Sul.",
+                vision_title: "Nossa Visão", vision_desc: "Ser a agência de turismo líder na região, reconhecida por nossa inovação, transparência e excelência no atendimento ao cliente.",
+                id_title: "Viaje apenas com seu RG", id_desc: "Desfrute da liberdade de viajar pelo MERCOSUL sem passaporte. Seu documento de identidade é sua chave para novas aventuras.", btn_more_info: "Mais Informações",
+                miles_title: "Tem Milhas Acumuladas?", miles_desc: "Compramos, vendemos e gerenciamos suas milhas para você voar mais barato.", btn_miles_specialist: "Especialista em Milhas",
+                pkg_title: "Pacotes em Destaque", pkg_subtitle: "As melhores ofertas selecionadas para você.",
+                pay_methods: "Meios de Pagamento Flexíveis", pay_secure: "Pagamentos 100% Seguros e Verificados",
+                insta_title: "Siga-nos no Instagram", insta_desc: "Fique por dentro das nossas últimas ofertas e destinos @vhtours_br", btn_insta_more: "Ver mais no Instagram",
+                footer_about: "Sua agência de confiança para viagens internacionais e gestão de milhas.", footer_contact: "Contato", footer_social: "Siga-nos",
+                chat_welcome: "Olá! Sou VH Tours Assistant. Como posso ajudar hoje?",
+                pkg_btn: "Ver Oferta",
+                map_title: "Nossa Localização",
+                chatbot: {
+                    greeting_options: "Opções disponíveis: <br>- Passagens/Preço<br>- Endereço/Localização<br>- CNPJ<br>- Instagram<br>- WhatsApp<br>- Falar com Agente<br>- Sobre a Empresa",
+                    price: "Os preços variam conforme a data e destino. Poderia me informar para onde deseja viajar?",
+                    greeting: "Olá! Busca passagens, pacotes turísticos ou informações da empresa? (Digite 'Menu' para ver opções)",
+                    destinations: "Excelente destino! Temos ofertas especiais. Gostaria de falar com um consultor humano?",
+                    address: "Estamos localizados em: Av. Brigadeiro Eduardo Gomes, 1082, Sala 01 - Estados, Boa Vista - RR, 69.305-455",
+                    cnpj: "Nossa empresa opera com o CNPJ: 33.662.094/0001-13 (Vh Tours Empreendimentos Ltda)",
+                    insta: "Siga-nos no Instagram: <a href='https://www.instagram.com/vhtours_br/' target='_blank' style='color:var(--secondary-color)'>@vhtours_br</a>",
+                    whatsapp: "Nosso WhatsApp principal é: <a href='https://wa.me/559591763272' target='_blank' style='color:var(--secondary-color)'>+55 95 9176-3272</a>",
+                    agent: "Você pode contatar nossos consultores aqui: <a href='https://linkfly.to/vhtours' target='_blank' style='color:var(--secondary-color)'>Contatar Agentes</a>",
+                    about: "Somos a VH Tours, especialistas em conectar destinos na América do Sul com os melhores preços e segurança. Oferecemos passagens aéreas, pacotes turísticos e gestão de milhas.",
+                    desc_tourism: "O turismo é mais que viajar, é viver experiências. Na VH Tours ajudamos você a descobrir Brasil, Argentina, Chile e mais, apenas com seu RG.",
+                    default: "Entendo. Para melhor atendimento, vou te transferir para um agente humano via WhatsApp, ou digite 'Menu' para ver opções."
+                }
+            },
+            en: {
+                nav_home: "Home", nav_mission: "Mission & Vision", nav_packages: "Packages", nav_miles: "Miles", nav_payment: "Payments", nav_instagram: "Instagram", nav_contact: "Contact",
+                hero_title: "Travel more, pay less, with VH TOURS", hero_subtitle: "Experts connecting destinations with trust and the best market prices.",
+                btn_buy_ticket: "Buy Ticket", btn_advisor: "Talk to Advisor",
+                lbl_origin: "Origin", lbl_dest: "Destination", lbl_date_out: "Depart", lbl_date_ret: "Return", lbl_passengers: "Passengers", btn_search: "Search Flights",
+                ph_city: "City",
+                mission_title: "Our Mission", mission_desc: "Connecting dreams with destinations, providing accessible and safe travel experiences for all our customers in South America.",
+                vision_title: "Our Vision", vision_desc: "To be the leading tourism agency in the region, recognized for our innovation, transparency, and excellence in customer service.",
+                id_title: "Travel with ID Only", id_desc: "Enjoy the freedom of traveling through MERCOSUR without a passport. Your ID card is your key to new adventures.", btn_more_info: "More Info",
+                miles_title: "Got Accumulated Miles?", miles_desc: "We buy, sell, and manage your miles so you fly cheaper.", btn_miles_specialist: "Miles Specialist",
+                pkg_title: "Featured Packages", pkg_subtitle: "The best offers selected for you.",
+                pay_methods: "Flexible Payment Methods", pay_secure: "100% Secure & Verified Payments",
+                insta_title: "Follow us on Instagram", insta_desc: "Stay updated with our latest offers and destinations @vhtours_br", btn_insta_more: "See more on Instagram",
+                footer_about: "Your trusted agency for international travel and miles management.", footer_contact: "Contact", footer_social: "Follow Us",
+                chat_welcome: "Hello! I am VH Tours Assistant. How can I help you today?",
+                pkg_btn: "View Offer",
+                map_title: "Our Location",
+                chatbot: {
+                    greeting_options: "Available options: <br>- Flights/Price<br>- Address/Location<br>- CNPJ<br>- Instagram<br>- WhatsApp<br>- Talk to Agent<br>- About Us",
+                    price: "Prices vary by date and destination. Where would you like to travel?",
+                    greeting: "Hello! Are you looking for tickets, packages, or company info? (Type 'Menu' for options)",
+                    destinations: "Great destination! We have special offers. Would you like to speak with a human advisor?",
+                    address: "We are located at: Av. Brigadeiro Eduardo Gomes, 1082, Sala 01 - Estados, Boa Vista - RR, 69.305-455",
+                    cnpj: "Our company operates under CNPJ: 33.662.094/0001-13 (Vh Tours Empreendimentos Ltda)",
+                    insta: "Follow us on Instagram: <a href='https://www.instagram.com/vhtours_br/' target='_blank' style='color:var(--secondary-color)'>@vhtours_br</a>",
+                    whatsapp: "Our main WhatsApp is: <a href='https://wa.me/559591763272' target='_blank' style='color:var(--secondary-color)'>+55 95 9176-3272</a>",
+                    agent: "You can contact our agents here: <a href='https://linkfly.to/vhtours' target='_blank' style='color:var(--secondary-color)'>Contact Agents</a>",
+                    about: "We are VH Tours, specialists in connecting destinations in South America with the best prices and safety. We offer air tickets, tour packages, and miles management.",
+                    desc_tourism: "Tourism is more than traveling, it is living experiences. At VH Tours we help you discover Brazil, Argentina, Chile, and more, with just your ID.",
+                    default: "I understand. For better assistance, I will transfer you to a human agent via WhatsApp, or type 'Menu' to see options."
+                }
+            }
+        };
+
+        let currentLang = 'es';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
+            });
+
+            // Update Map Language
+            const mapIframe = document.getElementById('google-map-iframe');
+            let mapLang = 'es';
+            if (lang === 'pt') mapLang = 'pt-BR';
+            if (lang === 'en') mapLang = 'en';
+            // Construct new src with updated language param if needed, or mostly just standard localized embed
+            // Google Maps Embed API typically uses the browser's language or `&language=` param
+            // Current src: ...!2spt-BR!2sbr... (this seems to be part of the place query/context)
+            // We'll append &language=CODE to the src
+            let currentSrc = mapIframe.src;
+            // cleaning previous param if exists
+            currentSrc = currentSrc.replace(/&language=[a-zA-Z-]+/, '');
+            mapIframe.src = currentSrc + `&language=${mapLang}`;
+
+            renderPackages(); // Re-render to update package buttons
+        }
+
+        /* * ==========================================
+         * DATA STORE & RENDER (Paquetes)
+         * ==========================================
+         */
+        // Datos iniciales si LocalStorage está vacío
+        const defaultPackages = [
+            { id: 1, dest: "Buenos Aires", price: "$450 USD", img: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" },
+            { id: 2, dest: "Rio de Janeiro", price: "$520 USD", img: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" },
+            { id: 3, dest: "Santiago", price: "$380 USD", img: "https://images.unsplash.com/photo-1590089415225-401eb6b9850d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        function getPackages() {
+            const stored = localStorage.getItem('vh_packages');
+            return stored ? JSON.parse(stored) : defaultPackages;
+        }
+
+        function savePackages(pkgs) {
+            localStorage.setItem('vh_packages', JSON.stringify(pkgs));
+            renderPackages();
+            renderAdminPackages();
+        }
+
+        function renderPackages() {
+            const container = document.getElementById('packages-container');
+            const pkgs = getPackages();
+            container.innerHTML = pkgs.map(pkg => `
+                <div class="package-card">
+                    <div class="pkg-img"><img src="${pkg.img}" alt="${pkg.dest}"></div>
+                    <div class="pkg-details">
+                        <h3>${pkg.dest}</h3>
+                        <p class="pkg-price">${pkg.price}</p>
+                        <br>
+                        <a href="https://wa.me/559591763272?text=Interesado%20en%20paquete%20a%20${pkg.dest}" target="_blank" class="btn btn-primary">${translations[currentLang].pkg_btn}</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* * ==========================================
+         * ADMIN & LOGIN LOGIC
+         * ==========================================
+         */
+        function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
+        function closeLogin() { document.getElementById('loginModal').style.display = 'none'; }
+
+        function attemptLogin() {
+            const u = document.getElementById('adminUser').value;
+            const p = document.getElementById('adminPass').value;
+
+            // USUARIO: admin | CONTRASEÑA: 123456
+            if (u === 'admin' && p === '123456') {
+                closeLogin();
+                document.getElementById('public-site').style.display = 'none';
+                document.getElementById('admin-panel').style.display = 'block';
+                renderAdminPackages();
+            } else {
+                alert('Credenciales Incorrectas');
+            }
+        }
+
+        function logout() {
+            document.getElementById('admin-panel').style.display = 'none';
+            document.getElementById('public-site').style.display = 'block';
+            document.getElementById('adminUser').value = '';
+            document.getElementById('adminPass').value = '';
+        }
+
+        function backToSite() {
+            document.getElementById('admin-panel').style.display = 'none';
+            document.getElementById('public-site').style.display = 'block';
+        }
+
+        /* CRUD PAQUETES */
+        function renderAdminPackages() {
+            const list = document.getElementById('admin-pkg-list');
+            const pkgs = getPackages();
+            list.innerHTML = pkgs.map(pkg => `
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ddd; padding:10px 0;">
+                    <div>
+                        <strong>${pkg.dest}</strong> - ${pkg.price}
+                    </div>
+                    <button class="btn btn-accent" style="padding:5px 10px; font-size:0.7rem;" onclick="deletePackage(${pkg.id})">Eliminar</button>
+                </div>
+            `).join('');
+        }
+
+        function addPackage() {
+            const dest = document.getElementById('newPkgDest').value;
+            const price = document.getElementById('newPkgPrice').value;
+            const img = document.getElementById('newPkgImg').value || "https://via.placeholder.com/300"; // Fallback image
+
+            if (dest && price) {
+                const pkgs = getPackages();
+                pkgs.push({ id: Date.now(), dest, price, img });
+                savePackages(pkgs);
+                // Clear fields
+                document.getElementById('newPkgDest').value = '';
+                document.getElementById('newPkgPrice').value = '';
+                document.getElementById('newPkgImg').value = '';
+            } else {
+                alert('Complete destino y precio');
+            }
+        }
+
+        function deletePackage(id) {
+            if (confirm('¿Eliminar paquete?')) {
+                const pkgs = getPackages().filter(p => p.id !== id);
+                savePackages(pkgs);
+            }
+        }
+
+        /* * ==========================================
+         * CHATBOT LOGIC
+         * ==========================================
+         */
+        function toggleChat() {
+            const chat = document.getElementById('chatWindow');
+            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function handleChat(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            const body = document.getElementById('chatBody');
+
+            if (msg) {
+                // User Msg
+                body.innerHTML += `<div class="chat-msg user-msg">${msg}</div>`;
+                input.value = '';
+                body.scrollTop = body.scrollHeight;
+
+                // IA Simulatada
+                setTimeout(() => {
+                    let reply = "";
+                    const m = msg.toLowerCase();
+                    const replies = translations[currentLang].chatbot;
+
+                    // Improve matching logic with inclusive lower case check
+                    if (m === 'menu' || m === 'ayuda' || m === 'ajuda' || m === 'help') {
+                        reply = replies.greeting_options;
+                    } else if (m.match(/precio|cuanto|costo|preço|valor|price|cost/i)) {
+                        reply = replies.price;
+                    } else if (m.match(/hola|buenas|ola|oi|hello|hi/i)) {
+                        reply = replies.greeting;
+                    } else if (m.match(/madrid|miami|buenos aires|lisboa|orlando/i)) {
+                        reply = replies.destinations;
+                    } else if (m.match(/direccion|dirección|ubicacion|ubicación|endereço|donde|onde|fica|address|where/i)) {
+                        reply = replies.address;
+                    } else if (m.match(/cnpj|razon|razão|social/i)) {
+                        reply = replies.cnpj;
+                    } else if (m.match(/instagram|insta|redes/i)) {
+                        reply = replies.insta;
+                    } else if (m.match(/whatsapp|zap|wpp|fone|telefono|teléfono|phone|contact|contato/i)) {
+                        reply = replies.whatsapp;
+                    } else if (m.match(/asesor|agente|falar|humano|persona|agent|human/i)) {
+                        reply = replies.agent;
+                    } else if (m.match(/sobre|empresa|quienes|quem|somos|about|company|vh tours/i)) {
+                        reply = replies.about;
+                    } else if (m.match(/turismo|viajar|experiencia|tourism/i)) {
+                        reply = replies.desc_tourism;
+                    } else {
+                        reply = replies.default;
+                    }
+
+                    body.innerHTML += `<div class="chat-msg bot-msg">${reply}</div>`;
+                    body.scrollTop = body.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        /* * ==========================================
+         * MISC
+         * ==========================================
+         */
+        function simulateSearch() {
+            // SIMULAÇÃO: Redireciona para WhatsApp com os dados
+            const org = document.querySelector('[data-i18n-ph="ph_city"]').value || "Origen";
+            const dst = document.querySelectorAll('[data-i18n-ph="ph_city"]')[1].value || "Destino";
+            window.open(`https://wa.me/559591763272?text=Hola, quiero cotizar vuelos de ${org} a ${dst}`, '_blank');
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.style.flexDirection = 'column';
+            nav.style.position = 'absolute';
+            nav.style.top = '60px';
+            nav.style.left = '0';
+            nav.style.width = '100%';
+            nav.style.background = 'white';
+            nav.style.padding = '20px';
+            nav.style.boxShadow = '0 5px 5px rgba(0,0,0,0.1)';
+        }
+
+        // Init
+        window.onload = function () {
+            renderPackages();
+        }
+
+    </script>
+</body>
+
+</html>
